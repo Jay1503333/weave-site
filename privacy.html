@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Weave</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <img src="logo.png" alt=""><a class="name" href="index.html">Weave</a>
+  <nav><a href="support.html">Help</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+</header>
+<main>
+<h1>Privacy Policy</h1>
+<p class="updated">Effective October 18, 2026</p>
+
+<div class="card"><strong>The short version:</strong> Weave does not collect, sell or share your personal data. There are no accounts, ads, analytics or crash-reporting services. Everything Weave knows about your servers and viewing stays on your phone.</div>
+
+<h2>Who we are</h2>
+<p>Weave ("the app") is an Android media player published by TruSentry LLC ("we"). Questions about this policy can be sent to <a href="mailto:trusentryllc@gmail.com">trusentryllc@gmail.com</a>.</p>
+
+<h2>Information stored on your device</h2>
+<p>To work, the app stores the following <strong>only on your device</strong>. It is never sent to us.</p>
+<ul>
+  <li><strong>Server details</strong> you enter: address, share name, port, username, and optionally a password. Passwords and API keys are encrypted with AES-256-GCM using a key held in the Android Keystore, which cannot be exported from the device.</li>
+  <li><strong>Library index</strong>: the names, sizes and dates of video files in the folders you choose, used to build your Movies and TV Shows lists.</li>
+  <li><strong>Watch history</strong>: resume positions and watched marks.</li>
+  <li><strong>Artwork cache</strong>: thumbnails created from your own video files and, if you enable it, posters downloaded from TMDB.</li>
+  <li><strong>Preferences</strong> such as theme and playback settings.</li>
+</ul>
+<p>App data is excluded from Android cloud backups and device-to-device transfer, so your credentials are not copied off the device.</p>
+
+<h2>Network connections the app makes</h2>
+<ul>
+  <li><strong>Your servers.</strong> The app connects directly to the storage devices you add, using the SMB protocol, to list folders and stream or download files. These connections go only to addresses you provide or select.</li>
+  <li><strong>Local network discovery.</strong> During setup, the app checks devices on your current Wi-Fi network (and common router addresses) for file sharing on port 445 so it can suggest your storage. This happens on your local network only and nothing is sent to us.</li>
+  <li><strong>The Movie Database (optional).</strong> If you turn on "Posters &amp; descriptions", the app sends cleaned-up titles and release years (for example "Serenity", 2005), along with an API key, to TMDB's servers (<code>api.themoviedb.org</code>) and loads images from <code>image.tmdb.org</code>. No file paths, server addresses, credentials or viewing history are sent. TMDB's handling of these requests is governed by the <a href="https://www.themoviedb.org/privacy-policy">TMDB privacy policy</a>. This feature is off unless you enable it.</li>
+</ul>
+<p>We do not operate any server that receives data from the app.</p>
+
+<h2>Permissions</h2>
+<ul>
+  <li><strong>Internet</strong> and <strong>network state</strong>: to connect to your servers and, optionally, TMDB, and to tell whether you're on Wi-Fi or mobile data.</li>
+  <li><strong>Local network access</strong> (Android 17 and later): to reach storage devices on your home network.</li>
+  <li><strong>Storage</strong> (Android 9 and earlier only): to save files you choose to download.</li>
+</ul>
+
+<h2>Third-party services</h2>
+<p>The app contains no advertising, analytics or tracking SDKs. Remote access features rely on VPN software you install and configure separately, such as Tailscale, which is governed by its own privacy policy. Weave does not communicate with such services.</p>
+
+<h2>Purchases and the free trial</h2>
+<p>Weave offers an optional one-time purchase, Weave Pro, sold through Google Play. Payment is handled entirely by Google; we never see your name, email, card or billing address. The app asks Google Play only whether your Google account owns Weave Pro, and stores that yes/no answer on your device. The 7-day free trial is tracked by a start date stored only on your device. Google's handling of purchase information is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+
+<h2>Children</h2>
+<p>The app is not directed at children under 13 and does not knowingly collect information from anyone.</p>
+
+<h2>Your choices and deleting your data</h2>
+<p>You can remove a server (and its saved credentials) in Settings → Manage servers, clear watch history and the artwork cache in Settings, or remove all app data by clearing the app's storage or uninstalling it. Because we hold no data about you, there is nothing for us to delete on our side.</p>
+
+<h2>Security</h2>
+<p>Credentials are encrypted at rest with a hardware-backed key. SMB traffic on your own network is handled by your server's settings; you can require SMB 3 encryption per server in the app. For remote access we recommend a VPN rather than exposing file sharing to the internet.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, we will update this page and the effective date above. Significant changes will also be noted in the app's release notes.</p>
+</main>
+<footer>© 2026 Weave · <a href="terms.html">Terms of Use</a> · <a href="support.html">Support</a></footer>
+</body>
+</html>

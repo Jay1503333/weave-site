@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help &amp; Support — Weave</title>
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <img src="logo.png" alt=""><a class="name" href="index.html">Weave</a>
+  <nav><a href="support.html">Help</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+</header>
+<main>
+<h1>Help &amp; Support</h1>
+<p class="lede">Everything you need to connect Weave to your storage, build your library and watch from anywhere.</p>
+
+<h2>Getting started</h2>
+<ol>
+  <li>Open Weave and tap <strong>Get started</strong>. On Android 17 and later, allow <strong>Local network access</strong> so Weave can reach devices on your Wi-Fi.</li>
+  <li>Weave scans your network for file servers. Tap yours, or choose <strong>Enter address</strong>.</li>
+  <li>Enter a username and password if your server needs them (leave blank for guest access), confirm the <strong>share name</strong> (tap <em>Find shares on this server</em> if you're unsure), then tap <strong>Connect</strong>.</li>
+  <li>Pick your <strong>Movies</strong> and <strong>TV</strong> folders. Weave usually detects them automatically. Tap <strong>Build my library</strong>.</li>
+</ol>
+
+<h2>Compatible storage</h2>
+<p>Anything that shares files over SMB 2 or SMB 3 (Windows file sharing): Synology, QNAP, Asustor, TrueNAS, Unraid and Western Digital NAS devices; USB drives on routers such as Netgear ReadySHARE, ASUS AiDisk and TP-Link USB Sharing; and shared folders on Windows, macOS and Linux.</p>
+
+<details><summary>Common share names</summary>
+<ul>
+  <li><strong>Netgear ReadySHARE:</strong> <code>USB_Storage</code> or <code>T_Drive</code> (the address is usually your router's own address)</li>
+  <li><strong>Synology / QNAP:</strong> the shared folder you created, such as <code>video</code>, <code>media</code> or <code>homes</code></li>
+  <li><strong>Windows:</strong> the name shown under the folder's Properties → Sharing</li>
+</ul></details>
+
+<h2>Organizing your library</h2>
+<p>Weave builds your library from file and folder names. These layouts work best:</p>
+<pre>Movies/
+  Serenity (2005)/Serenity (2005).mkv
+  Big Buck Bunny (2008).mp4
+TV/
+  Show Name/
+    Season 1/Show Name S01E01 Episode Title.mkv
+    Season 2/Show Name S02E01.mkv</pre>
+<p>Release-style names like <code>Movie.Title.2019.1080p.x264.mkv</code> are cleaned up automatically. Subtitle files with the same name as the video (<code>Movie.en.srt</code>) are picked up automatically. Pull down on Home to rescan after adding files.</p>
+
+<h2>Watching away from home</h2>
+<p>Weave never asks you to open ports on your router. Instead, use a VPN that puts your phone on your home network. <strong>Tailscale</strong> is free for personal use and takes about ten minutes:</p>
+<ol>
+  <li>Install Tailscale on a computer at home that stays on, and sign in.</li>
+  <li>Share a route to your storage from that computer. To share just your NAS (recommended), run:
+    <pre>tailscale set --advertise-routes=&lt;your-NAS-address&gt;/32</pre>
+    replacing the address with your NAS's address.</li>
+  <li>In the <a href="https://login.tailscale.com/admin/machines">Tailscale admin console</a>, open that computer → <strong>Edit route settings</strong> → approve the route.</li>
+  <li>Install Tailscale on your phone, sign in with the same account and keep <strong>Use Tailscale subnets</strong> turned on.</li>
+  <li>That's it. Weave uses the same address as at home whenever Tailscale is connected.</li>
+</ol>
+<p>If your NAS can run Tailscale itself (Synology, QNAP, TrueNAS and Unraid can), install it there instead and add the NAS using its <code>100.x.y.z</code> Tailscale address.</p>
+
+<h2>Playback</h2>
+<details><summary>Which formats are supported?</summary>
+<p>MKV, MP4, AVI, MOV, WebM and MPEG-TS containers, with H.264, H.265/HEVC, VP9 and AV1 video where your phone supports them in hardware. Audio: AAC, MP3, Opus, FLAC and Vorbis everywhere; Dolby Digital (AC-3/E-AC-3) and DTS depend on your phone's decoders. Most Samsung phones include Dolby.</p></details>
+<details><summary>Gestures and controls</summary>
+<p>Double-tap the left or right of the picture to skip back 10 or forward 30 seconds, and double-tap the middle to pause. The zoom button switches between Fit, Zoom and Stretch. Leaving the app while a video plays opens picture-in-picture. Audio, subtitle and speed options are in the player's settings menu.</p></details>
+<details><summary>Video plays but there's no sound</summary>
+<p>Your phone can't decode that audio format (DTS is the usual cause). Choose another audio track in the player settings if the file has one.</p></details>
+<details><summary>Remote playback stutters</summary>
+<p>Away from home, playback is limited by your home internet's upload speed. 1080p usually needs 5–10 Mbps. Weave doesn't transcode, so smaller HEVC files stream best remotely.</p></details>
+
+<h2>Troubleshooting</h2>
+<details><summary>"Can't reach" my server</summary>
+<p>Check that your phone is on the same Wi-Fi as the server (or that your VPN is connected when away), that the address is right, and on Android 17+ that Local network access is allowed in Settings → Apps → Weave → Permissions. Some mesh Wi-Fi systems put phones on a separate network from the main router; Weave checks common router addresses for this, but you can always enter the address manually.</p></details>
+<details><summary>"Rejected the sign-in"</summary>
+<p>Double-check the username and password. Some routers use the router's admin account for protected shares.</p></details>
+<details><summary>Library is missing files</summary>
+<p>Make sure the files are inside the folders chosen in Settings → Library folders, then pull down on Home to rescan. For TV, keep one folder per show.</p></details>
+
+<h2>Keeping your storage safe</h2>
+<ul>
+  <li>Never forward file-sharing ports (445, 139, 21) on your router.</li>
+  <li>Turn off "access over the internet" features for router-attached storage and use a VPN instead.</li>
+  <li>Protect shares with a password if other people use your Wi-Fi.</li>
+</ul>
+
+<h2>Contact</h2>
+<p>Still stuck? Email <a href="mailto:trusentryllc@gmail.com">trusentryllc@gmail.com</a> with your phone model, Android version and storage device, and we'll help.</p>
+</main>
+<footer>© 2026 Weave · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></footer>
+</body>
+</html>
